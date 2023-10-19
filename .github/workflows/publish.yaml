@@ -25,17 +25,4 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER }}/login_app:latest
-     - name: Notify Slack on success
-        if: ${{ success() }}
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: test
-          SLACK_MESSAGE: "OK. The Docker image has been built and pushed successfuly."
-      - name: Notify Slack on failure
-        if: ${{ failure() }}
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: test
-          SLACK_MESSAGE: "FAIL. The Docker image has been built and pushed fail."
+
